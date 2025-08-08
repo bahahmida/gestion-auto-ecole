@@ -1,0 +1,30 @@
+/* graphe2.css */
+.pie-chart {
+    -fx-pie-label-visible: true;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+/* Customize colors for each slice */
+.chart-pie.data0 { /* Réussi */
+    -fx-pie-color: #4CAF50; /* Green */
+}
+.chart-pie.data1 { /* Échoué */
+    -fx-pie-color: #F44336; /* Red */
+}
+.chart-pie.data2 { /* En Attente */
+    -fx-pie-color: #FFC107; /* Yellow */
+}
+
+/* Legend styling */
+.chart-legend {
+    -fx-background-color: #f4f4f4;
+    -fx-border-color: #ccc;
+    -fx-padding: 5px;
+}
+
+/* Label text styling */
+.chart-pie-label {
+    -fx-fill: #000000; /* Black text for readability */
+    -fx-font-size: 11px;
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.ExamenAvenirController">
+    <children>
+        <VBox layoutX="10.0" layoutY="1.0" prefHeight="583.0" prefWidth="758.0" spacing="20">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <children>
+                        <Label styleClass="title" text="Examen conduite a venir cette semaine" />
+                        <Region prefHeight="40.0" prefWidth="163.0" HBox.hgrow="ALWAYS" />
+                        <Button fx:id="closeButton" onAction="#close" prefHeight="50.0" prefWidth="95.0" styleClass="secondary-button" text="✕" />
+                    </children>
+                </HBox>
+                <TableView fx:id="examsTable" prefHeight="400.0" prefWidth="742.0" styleClass="data-table">
+                    <columns>
+                        <TableColumn fx:id="iconColumn" prefWidth="50.0" text="" />
+                        <TableColumn fx:id="idColumn" prefWidth="50.0" text="ID" />
+                        <TableColumn fx:id="typeColumn" prefWidth="100.0" text="Type" />
+                        <TableColumn fx:id="dateColumn" prefWidth="120.0" text="Date" />
+                        <TableColumn fx:id="candidatCinColumn" prefWidth="100.0" text="CIN Candidat" />
+                        <TableColumn fx:id="prixColumn" prefWidth="80.0" text="Prix" />
+                        <TableColumn fx:id="resultatColumn" prefWidth="80.0" text="Résultat" />
+                    </columns>
+                </TableView>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,181 @@
+/* styleLogin.css */
+
+/* Root styles */
+.root {
+    -fx-background-color: #E3F2FD; /* Light blue background */
+}
+
+/* Top Bar */
+.top-bar {
+    -fx-background-color: transparent;
+    -fx-padding: 10px 20px;
+}
+
+/* Logo */
+.logo {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1E3A8A; /* Dark blue for logo */
+}
+
+/* Navigation Links */
+.nav-links {
+    -fx-padding: 0 20px;
+}
+
+.nav-link {
+    -fx-font-size: 14px;
+    -fx-text-fill: #64748B; /* Grayish-blue for inactive links */
+    -fx-cursor: hand;
+}
+
+.nav-link:hover {
+    -fx-text-fill: #1E3A8A; /* Dark blue on hover */
+}
+
+.nav-link.active {
+    -fx-text-fill: #1E3A8A; /* Dark blue for active link */
+    -fx-underline: true;
+}
+
+/* Illustration Pane */
+.illustration-pane {
+    -fx-background-color: #BFDBFE; /* Slightly darker blue for illustration background */
+}
+
+/* Login Pane */
+.login-pane {
+    -fx-background-color: #FFFFFF; /* White background for login form */
+    -fx-padding: 40px;
+    -fx-alignment: center;
+}
+
+/* Welcome Title */
+.welcome-title {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1E3A8A; /* Dark blue for title */
+}
+
+/* Welcome Subtitle */
+.welcome-subtitle {
+    -fx-font-size: 16px;
+    -fx-text-fill: #64748B; /* Grayish-blue for subtitle */
+    -fx-padding: 0 0 20px 0;
+}
+
+/* Form Container */
+.form-container {
+    -fx-alignment: center;
+    -fx-spacing: 15px;
+}
+
+/* Field Container */
+.field-container {
+    -fx-alignment: top-left;
+}
+
+/* Labels */
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #1E3A8A; /* Dark blue for labels */
+}
+.h1 {
+    -fx-font-size: 20px; /* Slightly larger for impact */
+    -fx-font-weight: bold;
+    -fx-text-fill: #1E3A8A; /* Deeper, richer blue tones */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 2, 0.1, 0, 1); /* Softer shadow */
+    -fx-padding: 0 0 10px 0;
+}
+
+/* Input Fields */
+.input-field {
+    -fx-pref-height: 40px;
+    -fx-pref-width: 300px;
+    -fx-background-color: #EFF6FF; /* Very light blue background */
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: transparent;
+    -fx-font-size: 14px;
+    -fx-text-fill: #1E3A8A;
+    -fx-prompt-text-fill: #94A3B8; /* Grayish-blue for prompt text */
+}
+
+.input-field:focused {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #3B82F6; /* Vibrant blue border when focused */
+    -fx-border-width: 1px;
+}
+
+/* Error Labels */
+.error2-label {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #EF4444; /* Red for error messages */
+}
+
+/* Forgot Password Link */
+
+.white_h1 {
+    -fx-font-size: 44px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 2, 0.1, 0, 1);
+}
+.white_h2 {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 2, 0.1, 0, 1);
+}
+.white_h3 {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 2, 0.1, 0, 1);
+}
+.forgot-link {
+    -fx-font-size: 15px;
+    -fx-text-fill: linear-gradient(to right, #1e5b9c, #134673); /* Deeper, richer blue tones */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 2, 0.1, 0, 1); /* Softer shadow */
+    -fx-padding: 0 0 10px 0;
+    -fx-font-weight: bold;/* Vibrant blue for the link */
+    -fx-cursor: hand;
+    -fx-alignment: center-right;
+}
+
+.forgot-link:hover {
+    -fx-text-fill: linear-gradient(to bottom right, #174e85, #103e5f); /* Darker blue on hover */
+}
+
+/* Login Button */
+.login-button {
+    -fx-background-color: linear-gradient(to bottom right, #1e5b9c, #134673); /* Vibrant blue background */
+    -fx-background-radius: 8px;
+    -fx-text-fill: #FFFFFF; /* White text */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.login-button:hover {
+    -fx-background-color: linear-gradient(to bottom right, #174e85, #103e5f);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 5, 0.2, 0, 2);
+    -fx-translate-y: -1px;
+}
+
+/* Modify Password Button */
+.modify-password-button {
+    -fx-background-color: transparent;
+    -fx-border-color: #3B82F6; /* Vibrant blue border */
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-text-fill: #3B82F6; /* Vibrant blue text */
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+
+.modify-password-button:hover {
+    -fx-background-color: #EFF6FF; /* Very light blue background on hover */
+    -fx-text-fill: #2563EB; /* Darker blue text on hover */
+}

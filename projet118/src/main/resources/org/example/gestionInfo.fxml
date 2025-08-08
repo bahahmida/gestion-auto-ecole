@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.GestionInfoController">
+    <children>
+        <!-- Top Bar -->
+        <VBox spacing="10" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="1000.0" styleClass="nav-bar">
+                <padding>
+                    <Insets bottom="10" left="20" right="20" top="10" />
+                </padding>
+                <children>
+                    <!-- Header -->
+                    <HBox alignment="CENTER_LEFT" prefHeight="103.0" prefWidth="989.0" spacing="20" styleClass="header">
+                        <padding>
+                            <Insets bottom="15" left="20" right="20" top="15" />
+                        </padding>
+                        <Label prefHeight="40.0" prefWidth="321.0" styleClass="title" text="🏢 Gestion Auto-École" />
+                        <Region HBox.hgrow="ALWAYS" /> <!-- Spacer -->
+                    </HBox>
+                </children>
+            </HBox>
+        </VBox>
+
+        <!-- Table -->
+        <TableView fx:id="autoEcoleTable" layoutX="20.8" layoutY="100.0" prefHeight="297.0" prefWidth="959.0" styleClass="table-view" AnchorPane.leftAnchor="21.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="100.0">
+            <columns>
+                <TableColumn fx:id="fieldColumn" prefWidth="481.6000583767891" text="" />
+                <TableColumn fx:id="valueColumn" prefWidth="465.6001281738281" text="" />
+            </columns>
+        </TableView>
+
+        <!-- Buttons -->
+        <HBox alignment="CENTER" layoutX="20.0" layoutY="418.0" spacing="20" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.799999999999955" AnchorPane.topAnchor="418.0">
+            <padding>
+                <Insets top="20" />
+            </padding>
+            <Button fx:id="addInfoButton" onAction="#handleAddInfo" prefHeight="40.0" prefWidth="200.0" styleClass="menu-button" text="AJOUTER INFORMATIONS" />
+            <Button fx:id="modifyInfoButton" onAction="#handleModifyInfo" prefHeight="40.0" prefWidth="200.0" styleClass="menu-button" text="MODIFIER" />
+            <Button fx:id="modifyPasswordButton" onAction="#handleModifyPassword" prefHeight="40.0" prefWidth="200.0" styleClass="menu-button" text="MODIFIER MOT DE PASSE" />
+        </HBox>
+    </children>
+</AnchorPane>

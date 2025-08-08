@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="598.0" prefWidth="678.0" spacing="15" styleClass="form-container" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.UpdateVehiculeController">
+    <padding>
+        <Insets bottom="15" left="25" right="25" top="15" />
+    </padding>
+    <HBox prefHeight="60.0" prefWidth="200.0">
+        <children>
+            <Label prefHeight="44.0" prefWidth="587.0" styleClass="title" text="Modifier le Véhicule" />
+            <Button fx:id="cancelButton" onAction="#cancel" styleClass="secondary-button" text="X" />
+        </children>
+    </HBox>
+    <GridPane hgap="15" styleClass="formulaire" vgap="10">
+
+        <Label prefWidth="250.0" styleClass="form-label" text="Immatriculation :" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="immatriculationField" disable="true" prefWidth="300.0" styleClass="form-field" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+
+        <Label prefWidth="250.0" styleClass="form-label" text="Kilométrage actuel :" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="kmActuelField" prefWidth="300.0" styleClass="form-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Label fx:id="kmActuelErrorLabel" prefHeight="21.0" prefWidth="359.0" styleClass="error-label" wrapText="true" visible="false" managed="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+
+        <Label prefWidth="250.0" styleClass="form-label" text="Date d'échéance vignette :" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <DatePicker fx:id="echeanceVignetteField" prefWidth="300.0" styleClass="form-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <Label fx:id="echeanceVignetteErrorLabel" prefHeight="35.0" prefWidth="350.0" styleClass="error-label" wrapText="true" visible="false" managed="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+
+        <Label prefWidth="250.0" styleClass="form-label" text="Date d'échéance visite technique :" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+        <DatePicker fx:id="echeanceVisiteTechniqueField" prefWidth="300.0" styleClass="form-field" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+        <Label fx:id="echeanceVisiteTechniqueErrorLabel" prefHeight="35.0" prefWidth="350.0" styleClass="error-label" wrapText="true" visible="false" managed="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+
+        <Label prefWidth="250.0" styleClass="form-label" text="Date d'échéance assurance :" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+        <DatePicker fx:id="echeanceAssuranceField" prefWidth="300.0" styleClass="form-field" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+        <Label fx:id="echeanceAssuranceErrorLabel" prefHeight="35.0" prefWidth="350.0" styleClass="error-label" wrapText="true" visible="false" managed="false" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+
+
+        <Label prefWidth="250.0" styleClass="form-label" text="Kilométrage d'échéance Vidange:" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+        <TextField fx:id="kmEcheanceField" prefWidth="300.0" styleClass="form-field" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+        <Label fx:id="kmEcheanceErrorLabel" prefHeight="35.0" prefWidth="350.0" styleClass="error-label" wrapText="true" visible="false" managed="false" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+
+        <columnConstraints>
+            <ColumnConstraints prefWidth="250.0" />
+            <ColumnConstraints prefWidth="350.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+        </rowConstraints>
+    </GridPane>
+    <HBox alignment="CENTER_RIGHT" spacing="15">
+        <Button fx:id="saveButton" onAction="#updateVehicule" prefHeight="40.0" prefWidth="120.0" styleClass="primary-button" text="Enregistrer" />
+    </HBox>
+</VBox>

@@ -1,0 +1,119 @@
+/* Style général pour le LineChart */
+.chart {
+    -fx-background-color: #ffffff; /* Fond blanc */
+    -fx-border-color: #e0e0e0; /* Bordure légère */
+    -fx-border-width: 1;
+    -fx-padding: 10;
+}
+
+/* Style pour le titre du graphique */
+.chart-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333; /* Couleur sombre pour le titre */
+}
+
+/* Style pour les axes */
+.axis {
+    -fx-tick-label-font-size: 12px;
+    -fx-tick-label-fill: #555555; /* Couleur des étiquettes */
+}
+
+.axis-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+}
+
+/* Style pour la grille */
+.chart-vertical-grid-lines,
+.chart-horizontal-grid-lines {
+    -fx-stroke: #e0e0e0; /* Grille légère */
+}
+
+/* Style pour la série de données (courbe des revenus) */
+.default-color0.chart-series-line {
+    -fx-stroke: #007bff; /* Couleur bleue pour la courbe */
+    -fx-stroke-width: 3px; /* Épaisseur de la courbe */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 1); /* Ombre douce */
+}
+
+/* Style pour les points de données */
+.default-color0.chart-line-symbol {
+    -fx-background-color: #007bff, #ffffff; /* Point bleu avec contour blanc */
+    -fx-background-radius: 5px; /* Points arrondis */
+    -fx-padding: 4px; /* Taille des points */
+}
+
+/* Style au survol des points */
+.default-color0.chart-line-symbol:hover {
+    -fx-background-color: #0056b3, #ffffff; /* Bleu plus foncé au survol */
+    -fx-scale-x: 1.2; /* Agrandissement léger */
+    -fx-scale-y: 1.2;
+}
+
+/* Style pour la légende */
+.chart-legend {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1;
+    -fx-padding: 5;
+}
+
+.chart-legend-item {
+    -fx-text-fill: #333333;
+    -fx-font-size: 12px;
+}
+
+/* Style pour le fond du graphique */
+.chart-plot-background {
+    -fx-background-color: #f8f9fa; /* Fond gris clair */
+}
+/* graphe1.css */
+.chart-series-line.series0 {
+    -fx-stroke: green; /* Revenue */
+}
+
+.chart-series-line.series1 {
+    -fx-stroke: red; /* Expenses */
+}
+
+.chart-series-line.series2 {
+    -fx-stroke: green; /* Profit */
+}
+
+.chart-series-line.series3 {
+    -fx-stroke: red; /* Loss */
+}
+
+.chart-line-symbol.series0 {
+    -fx-background-color: green, white;
+    -fx-background-radius: 3px;
+}
+
+.chart-line-symbol.series1 {
+    -fx-background-color: red, white;
+    -fx-background-radius: 3px;
+}
+
+.chart-line-symbol.profit-symbol {
+    -fx-background-color: green, white;
+    -fx-background-radius: 3px;
+}
+
+.chart-line-symbol.loss-symbol {
+    -fx-background-color: red, white;
+    -fx-background-radius: 3px;
+}
+
+/* Chart background and grid */
+.chart {
+    -fx-background-color: white;
+}
+
+.chart-plot-background {
+    -fx-background-color: white;
+}
+
+.chart-vertical-grid-lines, .chart-horizontal-grid-lines {
+    -fx-stroke: #e0e0e0;
+}

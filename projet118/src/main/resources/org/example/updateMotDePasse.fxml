@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="385.0" prefWidth="600.0" spacing="15" styleClass="form-container" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.UpdateMotDePasseController">
+    <padding>
+        <Insets bottom="20" left="30" right="30" top="20" />
+    </padding>
+
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label styleClass="title" text="Modifier le mot de passe" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Button fx:id="closeButton" onAction="#handleClose" prefHeight="40.0" prefWidth="53.0" styleClass="secondary-button" text="✕" />
+    </HBox>
+
+
+    <GridPane hgap="10" prefHeight="167.0" prefWidth="570.0" styleClass="formulaire" vgap="15">
+
+        <Label prefHeight="30.0" prefWidth="210.0" styleClass="form-label" text="Ancien mot de passe :" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <PasswordField fx:id="oldPasswordField" prefHeight="23.0" prefWidth="350.0" styleClass="form-field" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Label fx:id="oldPasswordErrorLabel" prefWidth="350.0" managed="false" styleClass="error-label" visible="false" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+
+        <Label prefHeight="29.0" prefWidth="210.0" styleClass="form-label" text="Nouveau mot de passe :" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <PasswordField fx:id="newPasswordField" prefHeight="23.0" prefWidth="350.0" styleClass="form-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Label fx:id="newPasswordErrorLabel" prefWidth="350.0" managed="false" styleClass="error-label" visible="false" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+        <columnConstraints>
+            <ColumnConstraints maxWidth="210.0" minWidth="143.200048828125" prefWidth="210.0" />
+            <ColumnConstraints maxWidth="400.0" minWidth="300.0" prefWidth="350.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+        </rowConstraints>
+    </GridPane>
+
+
+    <VBox alignment="CENTER" spacing="10">
+        <Label fx:id="forgotPasswordLabel" onMouseClicked="#handleForgotPassword" styleClass="forgot-link" text="Forgot?" stylesheets="@style.css" />
+        <Button fx:id="updateButton" onAction="#handleUpdate" prefHeight="40.0" prefWidth="150.0" styleClass="primary-button" text="Modifier" />
+    </VBox>
+</VBox>

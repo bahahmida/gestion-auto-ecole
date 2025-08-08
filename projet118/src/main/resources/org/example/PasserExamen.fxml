@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="700.0" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.PasserExamenController">
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="1000.0" styleClass="header">
+            <Label alignment="CENTER" styleClass="title" text="📝 Gestion des Examens">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+                <HBox.margin>
+                    <Insets left="20.0" right="20.0" />
+                </HBox.margin>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <HBox fx:id="searchBox" alignment="CENTER" prefHeight="59.0" prefWidth="362.0" spacing="5" styleClass="search-box">
+                <TextField fx:id="headerSearchField" onAction="#handleHeaderSearch" prefHeight="45.0" prefWidth="362.0" promptText="🔍 Rechercher un examen par CIN..." styleClass="search-field" />
+            </HBox>
+            <Region HBox.hgrow="ALWAYS" />
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </HBox>
+    </top>
+    <center>
+        <VBox styleClass="content-area" BorderPane.alignment="CENTER">
+            <TabPane fx:id="mainTabPane" styleClass="exam-tab-pane, themed-tab-pane" VBox.vgrow="ALWAYS">
+                <tabs>
+                    <Tab closable="false" text="Nouveau Examen">
+                        <content>
+                            <StackPane fx:id="formContainer" minHeight="500.0" prefHeight="500.0" VBox.vgrow="ALWAYS">
+                                <VBox spacing="20.0" styleClass="form-container">
+                                    <padding>
+                                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                    </padding>
+                                    <GridPane hgap="10.0" styleClass="formulaire" vgap="5.0">
+                                        <Label styleClass="form-label" text="Cin Candidat:" GridPane.rowIndex="0" />
+                                        <TextField fx:id="cinField" styleClass="form-input" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                        <Label fx:id="cinErrorLabel" managed="false" styleClass="error-label" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                        <Label styleClass="form-label" text="Type d'examen:" GridPane.rowIndex="2" />
+                                        <ComboBox fx:id="examTypeCombo" prefWidth="200.0" styleClass="form-combo" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <Label fx:id="examTypeErrorLabel" managed="false" styleClass="error-label" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                                        <Label styleClass="form-label" text="Date et Heure:" GridPane.rowIndex="4" />
+                                        <HBox spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                            <DatePicker fx:id="examDate" styleClass="form-datepicker" />
+                                            <ComboBox fx:id="examTime" prefWidth="100.0" styleClass="form-combo" />
+                                        </HBox>
+                                        <Label fx:id="examDateErrorLabel" managed="false" styleClass="error-label" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                                        <HBox alignment="CENTER_RIGHT" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                            <Button fx:id="nextButton" onAction="#handleNext" styleClass="primary-button" text="Suivant" />
+                                        </HBox>
+
+                                        <columnConstraints>
+                                            <ColumnConstraints hgrow="NEVER" minWidth="150.0" />
+                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="300.0" />
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints minHeight="40.0" />
+                                            <RowConstraints minHeight="20.0" />
+                                            <RowConstraints minHeight="40.0" />
+                                            <RowConstraints minHeight="20.0" />
+                                            <RowConstraints minHeight="40.0" />
+                                            <RowConstraints minHeight="20.0" />
+                                            <RowConstraints minHeight="60.0" />
+                                        </rowConstraints>
+                                    </GridPane>
+                                </VBox>
+                            </StackPane>
+                        </content>
+                    </Tab>
+                    <Tab closable="false" text="Liste des Examens">
+                        <content>
+                            <VBox spacing="20.0" styleClass="table-container">
+                                <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                </padding>
+                                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                                        <ToggleButton fx:id="filterCodeButton" onAction="#filterByCode" prefHeight="46.0" prefWidth="122.0" text="Code" />
+                                        <ToggleButton fx:id="filterTypeAButton" onAction="#filterByTypeA" text="Type A" />
+                                        <ToggleButton fx:id="filterTypeBButton" onAction="#filterByTypeB" text="Type B" />
+                                        <ToggleButton fx:id="filterTypeCButton" onAction="#filterByTypeC" text="Type C" />
+                                        <ToggleButton fx:id="filterPendingButton" onAction="#filterByPending" text="En attente" />
+                                        <ToggleButton fx:id="filterFailedButton" onAction="#filterByFailed" text="Échoué" />
+                                        <ToggleButton fx:id="filterPassedButton" onAction="#filterByPassed" text="Réussi" />
+                                        <ToggleButton fx:id="filterThisWeekButton" onAction="#filterByThisWeek" text="Cette semaine" />
+                                        <ToggleButton fx:id="resetFilterButton" onAction="#resetFilters" text="tout" />
+                                    </HBox>
+                                </HBox>
+                                <TableView fx:id="examsTable" styleClass="data-table" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="iconColumn" prefWidth="50.0" text="" />
+                                        <TableColumn fx:id="idColumn" prefWidth="50.0" text="ID" />
+                                        <TableColumn fx:id="typeColumn" prefWidth="160.79998779296875" text="Type" />
+                                        <TableColumn fx:id="dateColumn" prefWidth="144.0" text="Date" />
+                                        <TableColumn fx:id="candidatCinColumn" minWidth="4.79998779296875" prefWidth="103.99996948242188" text="CIN Candidat" />
+                                        <TableColumn fx:id="prixColumn" prefWidth="57.60003662109375" text="Prix" />
+                                        <TableColumn fx:id="resultatColumn" prefWidth="112.7999267578125" text="Résultat" />
+                                        <TableColumn fx:id="editColumn" minWidth="0.0" prefWidth="0.0" text="" />
+                                        <TableColumn fx:id="editColumn" prefWidth="78.4000244140625" text="" />
+                              <TableColumn fx:id="deleteColumn" prefWidth="78.4000244140625" text="" />
+                                    </columns>
+                                </TableView>
+                            </VBox>
+                        </content>
+                    </Tab>
+                </tabs>
+            </TabPane>
+        </VBox>
+    </center>
+</BorderPane>

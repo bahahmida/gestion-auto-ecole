@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox prefHeight="700.0" prefWidth="1072.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.MenuController">
+    <!-- Navigation Panel -->
+    <VBox prefHeight="700.0" prefWidth="262.0" styleClass="navigation-panel">
+        <!-- App Logo/Title -->
+        <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" styleClass="nav-header">
+            <padding>
+                <Insets bottom="10" left="15" right="15" top="10" />
+            </padding>
+            <ImageView fx:id="logoImage" fitHeight="48.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" styleClass="logo-image">
+                <image>
+                    <Image url="@../../images/logo.png" />
+                </image>
+            </ImageView>
+            <Label prefHeight="26.0" prefWidth="143.0" styleClass="nav-title" text="Auto Academy" />
+        </HBox>
+
+        <!-- Navigation Buttons -->
+        <VBox prefHeight="559.0" prefWidth="245.0" spacing="5" styleClass="nav-buttons-container">
+            <padding>
+                <Insets bottom="20" left="10" right="10" top="20" />
+            </padding>
+
+            <Button fx:id="dashboardBtn" onAction="#loadDashboard" prefHeight="57.0" prefWidth="323.0" styleClass="nav-button" text="🏠 Tableau de bord" />
+            <Button fx:id="candidatesBtn" onAction="#loadCandidates" prefHeight="54.0" prefWidth="265.0" styleClass="nav-button" text="👤 Candidats" />
+            <Button fx:id="moniteurBtn" onAction="#loadMoniteur" prefHeight="69.0" prefWidth="342.0" styleClass="nav-button" text="👨‍🏫 Moniteurs" />
+            <Button fx:id="vehiclesBtn" onAction="#loadVehicles" prefHeight="58.0" prefWidth="378.0" styleClass="nav-button" text="🚗 Véhicules" />
+            <Button fx:id="sessionsBtn" onAction="#loadSessions" prefHeight="64.0" prefWidth="266.0" styleClass="nav-button" text="📅 Séances" />
+            <Button fx:id="examsBtn" onAction="#loadExams" prefHeight="68.0" prefWidth="247.0" styleClass="nav-button" text="📝 Examens" />
+            <Button fx:id="paymentsBtn" onAction="#loadPayments" prefHeight="61.0" prefWidth="240.0" styleClass="nav-button" text="💰 Paiements" />
+            <Button fx:id="settingsBtn" onAction="#loadSettings" prefHeight="59.0" prefWidth="270.0" styleClass="nav-button" text="⚙ Informations de l'ecole" />
+        </VBox>
+
+        <!-- User Info at Bottom -->
+        <VBox alignment="BOTTOM_LEFT" prefHeight="53.0" prefWidth="198.0" VBox.vgrow="ALWAYS">
+            <HBox alignment="CENTER_LEFT" prefHeight="50.0" styleClass="user-info">
+                <padding>
+                    <Insets bottom="10" left="15" right="15" top="10" />
+                </padding>
+                <Label prefHeight="30.0" prefWidth="0.0" styleClass="h2" />
+                <Button fx:id="logoutBtn" mnemonicParsing="false" onAction="#handleLogout" prefHeight="34.0" prefWidth="148.0" styleClass="logout-button" text="🚪 Déconnexion" />
+            </HBox>
+        </VBox>
+    </VBox>
+
+    <!-- Content Area -->
+    <StackPane fx:id="contentArea" prefHeight="700.0" prefWidth="842.0" HBox.hgrow="ALWAYS">
+        <!-- Content will be loaded here dynamically -->
+    </StackPane>
+</HBox>

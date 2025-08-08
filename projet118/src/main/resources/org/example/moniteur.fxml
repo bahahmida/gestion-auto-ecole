@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.MoniteurController">
+    <children>
+        <!-- Top Bar -->
+        <VBox spacing="10" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="1000.0" styleClass="nav-bar">
+                <padding>
+                    <Insets bottom="10" left="20" right="20" top="10" />
+                </padding>
+                <children>
+                    <!-- Header -->
+                    <HBox alignment="CENTER_LEFT" prefHeight="103.0" prefWidth="989.0" spacing="20" styleClass="header">
+                        <padding>
+                            <Insets bottom="15" left="20" right="20" top="15" />
+                        </padding>
+                        <Label prefHeight="46.0" prefWidth="250.0" styleClass="title" text="👨‍🏫 Moniteurs" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <HBox prefHeight="46.0" prefWidth="394.0">
+                            <children> <!-- Spacer -->
+                                <TextField fx:id="searchField" prefHeight="45.0" prefWidth="355.0" promptText="🔍 Rechercher un moniteur..." styleClass="search-field" />
+                            </children>
+                        </HBox>
+                        <Button fx:id="addInstructorButton" minWidth="245.0" onAction="#openAddInstructorForm" prefHeight="46.0" prefWidth="214.0" styleClass="menu-button" text="AJOUTER MONITEUR" />
+                    </HBox>
+                </children>
+            </HBox>
+            <!-- Filters -->
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <padding>
+                    <Insets bottom="10" left="20" right="20" />
+                </padding>
+                <ToggleButton fx:id="activeFilter" selected="true" text="type A" />
+                <ToggleButton fx:id="inactiveFilter" text="type B" />
+                <ToggleButton fx:id="availableFilter" text="type C" />
+                <ToggleButton fx:id="allFilter" text="Tout" />
+            </HBox>
+        </VBox>
+
+        <!-- Table -->
+        <TableView fx:id="instructorsTable" layoutX="20.0" layoutY="178.0" styleClass="table-view" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="178.0">
+            <columns>
+                <TableColumn fx:id="iconColumn" prefWidth="50" text="" />
+                <TableColumn fx:id="cinColumn" prefWidth="120" text="Cin" />
+                <TableColumn fx:id="nomColumn" prefWidth="120" text="Nom" />
+                <TableColumn fx:id="prenomColumn" prefWidth="120" text="Prenom" />
+                <TableColumn fx:id="salaireColumn" prefWidth="100" text="Salaire" />
+                <TableColumn fx:id="telephoneColumn" prefWidth="120" text="Télephone" />
+                <TableColumn fx:id="categorieColumn" prefWidth="120" text="Categorie" />
+                <TableColumn fx:id="updateColumn" prefWidth="50" text="" />
+                <TableColumn fx:id="deleteColumn" prefWidth="50" text="" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.web.WebView?>
+
+<VBox prefHeight="717.0" prefWidth="599.0" spacing="20" styleClass="form-container" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.UpdateSeanceConduitController">
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+    <HBox prefHeight="43.0" prefWidth="510.0">
+        <children>
+            <Label prefHeight="40.0" prefWidth="515.0" styleClass="title" text="Modifier Séance Conduite" />
+            <Button fx:id="cancelButton" onAction="#handleCancel" prefHeight="40.0" prefWidth="51.0" styleClass="secondary-button" text="✕" />
+        </children>
+    </HBox>
+
+    <GridPane hgap="10" prefHeight="718.0" prefWidth="532.0" styleClass="formulaire" vgap="10">
+
+        <Label text="CIN Moniteur:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="cinMoniteurField" prefWidth="200.0" promptText="Entrez le CIN du moniteur" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+        <Label fx:id="cinMoniteurErrorLabel" styleClass="error-label" visible="false" managed="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+
+        <Label text="CIN Candidat:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="cinCandidatField" disable="true" prefWidth="200.0" promptText="CIN du candidat" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Label fx:id="cinCandidatErrorLabel" styleClass="error-label" visible="false" managed="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+
+        <Label text="Date Séance:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <DatePicker fx:id="dateSeancePicker" prefWidth="200.0" promptText="Sélectionnez une date" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+        <Label fx:id="dateSeanceErrorLabel" styleClass="error-label" visible="false" managed="false" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+
+        <Label text="Heure Séance:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+        <ComboBox fx:id="heureSeanceCombo" prefWidth="200.0" promptText="Sélectionnez une heure" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+        <Label fx:id="heureSeanceErrorLabel" styleClass="error-label" visible="false" managed="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+
+
+        <Label GridPane.columnIndex="0" GridPane.rowIndex="8" />
+        <WebView fx:id="mapView" prefHeight="222.0" prefWidth="339.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="8" GridPane.vgrow="ALWAYS" />
+        <Label fx:id="mapErrorLabel" styleClass="error-label" visible="false" managed="false" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+
+        <columnConstraints>
+            <ColumnConstraints percentWidth="30.0" />
+            <ColumnConstraints hgrow="ALWAYS" percentWidth="70.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="30.0" />
+            <RowConstraints minHeight="20.0" />
+            <RowConstraints minHeight="30.0" />
+            <RowConstraints minHeight="20.0" />
+            <RowConstraints minHeight="30.0" />
+            <RowConstraints minHeight="20.0" />
+            <RowConstraints minHeight="30.0" />
+            <RowConstraints minHeight="20.0" />
+            <RowConstraints minHeight="200.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="20.0" />
+        </rowConstraints>
+    </GridPane>
+
+    <HBox alignment="CENTER_RIGHT" prefHeight="32.0" prefWidth="532.0" spacing="10">
+        <Button fx:id="saveButton" onAction="#handleSave" styleClass="primary-button" text="Enregistrer" />
+    </HBox>
+</VBox>

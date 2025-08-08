@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.HistoriqueMaintenanceVehiculeController">
+    <children>
+        <VBox spacing="20" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <!-- Header -->
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label styleClass="title" text="🔧 Liste des Maintenances" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="closeButton" onAction="#close" prefHeight="40.0" prefWidth="64.0" styleClass="secondary-button" text="✕" />
+            </HBox>
+
+            <!-- TableView -->
+            <TableView fx:id="entretienTable" prefHeight="200.0" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="iconMaintenanceColumn" prefWidth="50.0" text="" />
+                    <TableColumn fx:id="idEntretienColumn" prefWidth="85.6" text="ID" />
+                    <TableColumn fx:id="idVehiculeColumn" prefWidth="67.2" text="Matricule" />
+                    <TableColumn fx:id="typeEntretienColumn" prefWidth="110.4" text="Type" />
+                    <TableColumn fx:id="dateEntretienColumn" prefWidth="130.4" text="Date Début" />
+                    <TableColumn fx:id="dateEntretienColumn1" prefWidth="105.6" text="Date Fin" />
+                    <TableColumn fx:id="coutColumn" prefWidth="79.2" text="Coût" />
+                    <TableColumn fx:id="factureColumn" prefWidth="150.0" text="Facture" />
+                    <TableColumn fx:id="actionColumn" prefWidth="100.0" text="Actions" />
+                </columns>
+            </TableView>
+
+
+        </VBox>
+    </children>
+</AnchorPane>

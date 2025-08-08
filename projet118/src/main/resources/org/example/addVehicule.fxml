@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.AddVehiculeController">
+    <children>
+        <VBox spacing="20" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <!-- Header -->
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label styleClass="title" text="🚗 Ajouter un Véhicule" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Button fx:id="closeButton" onAction="#close" prefHeight="34.0" prefWidth="45.0" styleClass="secondary-button" text="X" />
+            </HBox>
+
+            <!-- Form avec ScrollPane -->
+            <ScrollPane fitToWidth="true" fitToHeight="false" styleClass="form-container">
+                <content>
+                    <VBox spacing="15">
+                        <!-- Un seul GridPane pour tout le formulaire -->
+                        <GridPane fx:id="formGrid" hgap="10" styleClass="formulaire" vgap="10">
+                            <!-- Section 1 : Informations du véhicule -->
+                            <Label text="Informations du Véhicule" styleClass="section-title" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
+
+                            <!-- Marque -->
+                            <Label text="Marque :" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                            <TextField fx:id="marqueField" promptText="Ex: Toyota" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                            <Label fx:id="marqueErrorLabel" styleClass="error-label" visible="false" managed="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                            <!-- Modèle -->
+                            <Label text="Modèle :" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                            <TextField fx:id="modeleField" promptText="Ex: Yaris" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                            <Label fx:id="modeleErrorLabel" styleClass="error-label" visible="false" managed="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+                            <!-- Immatriculation -->
+                            <Label text="Immatriculation :" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                            <HBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                <TextField fx:id="numeroSerieField" promptText="Numéro série" HBox.hgrow="ALWAYS" />
+                                <TextField fx:id="numeroSequentielField" promptText="Numéro séquentiel" HBox.hgrow="ALWAYS" />
+                            </HBox>
+                            <Label fx:id="immatriculationErrorLabel" styleClass="error-label" visible="false" managed="false" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+                            <!-- Année de fabrication -->
+                            <Label text="Année de fabrication :" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                            <TextField fx:id="anneeField" promptText="Ex: 2018" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                            <Label fx:id="anneeErrorLabel" styleClass="error-label" visible="false" managed="false" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+
+                            <!-- Kilométrage -->
+                            <Label text="Kilométrage actuel :" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+                            <TextField fx:id="kmField" promptText="Ex: 50000" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                            <Label fx:id="kmErrorLabel" styleClass="error-label" visible="false" managed="false" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+
+                            <!-- Catégorie -->
+                            <Label text="Catégorie :" GridPane.columnIndex="0" GridPane.rowIndex="11" />
+                            <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="11">
+                                <RadioButton fx:id="categorieA" text="A">
+                                    <toggleGroup>
+                                        <ToggleGroup fx:id="categorieToggleGroup" />
+                                    </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="categorieB" text="B" toggleGroup="$categorieToggleGroup" />
+                                <RadioButton fx:id="categorieC" text="C" toggleGroup="$categorieToggleGroup" />
+                            </HBox>
+                            <Label fx:id="categorieErrorLabel" styleClass="error-label" visible="false" managed="false" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+
+                            <!-- Section 2 : Documents associés -->
+                            <Label text="Documents Associés" styleClass="section-title" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="13" />
+
+                            <!-- Visite Technique -->
+                            <Label text="Date d'échéance Visite Technique :" GridPane.columnIndex="0" GridPane.rowIndex="14" />
+                            <DatePicker fx:id="visiteTechniqueDatePicker" promptText="Sélectionner une date" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+                            <Label fx:id="visiteTechniqueErrorLabel" styleClass="error-label" visible="false" managed="false" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+
+                            <!-- Assurance -->
+                            <Label text="Date d'échéance Assurance :" GridPane.columnIndex="0" GridPane.rowIndex="16" />
+                            <DatePicker fx:id="assuranceDatePicker" promptText="Sélectionner une date" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+                            <Label fx:id="assuranceErrorLabel" styleClass="error-label" visible="false" managed="false" GridPane.columnIndex="1" GridPane.rowIndex="17" />
+
+                            <!-- Vidange -->
+                            <Label text="Kilométrage d'échéance Vidange :" GridPane.columnIndex="0" GridPane.rowIndex="18" />
+                            <TextField fx:id="vidangeKmField" promptText="Ex: 60000" GridPane.columnIndex="1" GridPane.rowIndex="18" />
+                            <Label fx:id="vidangeKmErrorLabel" styleClass="error-label" visible="false" managed="false" GridPane.columnIndex="1" GridPane.rowIndex="19" />
+
+                            <!-- Contraintes de colonnes et de lignes -->
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="150.0" />
+                                <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                                <RowConstraints vgrow="SOMETIMES" />
+                            </rowConstraints>
+                        </GridPane>
+                    </VBox>
+                </content>
+            </ScrollPane>
+
+            <!-- Buttons -->
+            <HBox alignment="CENTER_RIGHT" spacing="10">
+                <Button fx:id="cancelButton" onAction="#handleCancel" prefHeight="26.0" prefWidth="86.0" styleClass="back-button" text="Annuler" />
+                <Button fx:id="saveButton" onAction="#handleSave" prefHeight="26.0" prefWidth="127.0" styleClass="primary-button" text="Enregistrer" />
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

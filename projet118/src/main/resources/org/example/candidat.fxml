@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" styleClass="root" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.CandidatController">
+    <children>
+        <!-- Top Bar -->
+        <VBox spacing="10" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="1000.0" styleClass="nav-bar">
+                <padding>
+                    <Insets bottom="10" left="20" right="20" top="10" />
+                </padding>
+                <children>
+                    <!-- Header -->
+                    <HBox alignment="CENTER_LEFT" prefHeight="103.0" prefWidth="989.0" spacing="20" styleClass="header">
+                        <padding>
+                            <Insets bottom="15" left="20" right="20" top="15" />
+                        </padding>
+                        <Label prefHeight="55.0" prefWidth="277.0" styleClass="title" text="👤 Candidats" />
+                        <TextField fx:id="searchField" prefHeight="46.0" prefWidth="290.0" promptText="🔍 Rechercher un candidat..." styleClass="search-field" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="addCandidatButton" minWidth="245.0" onAction="#handleAddCandidat" prefHeight="38.0" prefWidth="262.0" styleClass="menu-button" text="AJOUTER CANDIDAT" />
+                    </HBox>
+                </children>
+            </HBox>
+
+            <!-- Filters -->
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <padding>
+                    <Insets bottom="10" left="20" right="20" />
+                </padding>
+                <ToggleButton fx:id="activeFilter" onAction="#handleActiveFilter" selected="true" text="Actifs" />
+                <ToggleButton fx:id="inactiveFilter" onAction="#handleInactiveFilter" text="Inactifs" />
+                <ToggleButton fx:id="nonPayesFilter" onAction="#handleNonPayesFilter" text="Non Payés" />
+                <ToggleButton fx:id="allFilter" onAction="#handleAllFilter" text="Tout" />
+            </HBox>
+        </VBox>
+
+        <!-- Table -->
+        <TableView fx:id="candidatesTable" layoutX="20.0" layoutY="178.0" prefHeight="502.0" prefWidth="975.0" styleClass="table-view" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="178.0">
+            <columns>
+                <TableColumn fx:id="photoColumn" prefWidth="50" text="" />
+                <TableColumn fx:id="nameColumn" prefWidth="150" text="Nom" />
+                <TableColumn fx:id="typeColumn" prefWidth="109.60003662109375" text="Type/Catégorie" />
+                <TableColumn fx:id="statusColumn" prefWidth="90.39996337890625" text="État" />
+                <TableColumn fx:id="phoneColumn" prefWidth="107.99996948242188" text="Téléphone" />
+                <TableColumn fx:id="sessionsColumn" prefWidth="116.0" text="Séances" />
+                <TableColumn fx:id="paymentColumn" prefWidth="146.39996337890625" text="Payé/Total" />
+                <TableColumn fx:id="documentsColumn" prefWidth="80" text="Documents" />
+                <TableColumn fx:id="actionsColumn" prefWidth="140" text="Actions" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

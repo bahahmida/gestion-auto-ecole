@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<BorderPane stylesheets="@style.css,@dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.DashboardController">
+    <top>
+        <VBox spacing="10">
+            <!-- Header -->
+            <HBox alignment="CENTER_LEFT" styleClass="column-header">
+                <padding>
+                    <Insets bottom="15" left="20" right="20" top="15" />
+                </padding>
+                <Label styleClass="title" text="Tableau de Bord" />
+                <HBox alignment="CENTER_RIGHT" spacing="10" HBox.hgrow="ALWAYS">
+                    <Button onAction="#showPaiement" styleClass="back-button" text="Visualiser les paiements" />
+                    <Button onAction="#addCandidat" styleClass="menu-button" text="Nouveau candidat" />
+                </HBox>
+            </HBox>
+
+            <!-- Subtitle -->
+            <HBox styleClass="dashboard-subtitle">
+                <padding>
+                    <Insets bottom="10" left="20" right="20" top="0" />
+                </padding>
+                <Label styleClass="subtitle-text" text="Bienvenue dans votre système d'automatisation d'auto-école." HBox.hgrow="ALWAYS" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="dashboard-scroll-pane">
+            <VBox spacing="20">
+                <padding>
+                    <Insets bottom="20" left="20" right="20" top="10" />
+                </padding>
+
+                <!-- Statistics Cards -->
+                <HBox alignment="CENTER" spacing="15" styleClass="stats-container" VBox.vgrow="NEVER">
+                    <!-- Total Candidates Card -->
+                    <VBox fx:id="candidateCard" onMouseClicked="#showCandidat" HBox.hgrow="ALWAYS">
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <StackPane fx:id="candidateIcon" styleClass="stat-icon-container, candidate-icon">
+                                <Circle radius="20" styleClass="stat-icon-circle" />
+                                <Label styleClass="stat-icon, logo-image" text="👤" />
+                            </StackPane>
+                            <Label styleClass="stat-title" text="Total Candidats" HBox.hgrow="ALWAYS" />
+                        </HBox>
+                        <Label fx:id="candidatTotal" styleClass="stat-value" />
+                        <Label fx:id="candidatInactif" styleClass="stat-subtitle" text="+6 ce mois-ci" />
+                        <styleClass>
+                            <String fx:value="stat-card" />
+                            <String fx:value="logo-image" />
+                        </styleClass>
+                    </VBox>
+
+                    <!-- Active Instructors Card -->
+                    <VBox fx:id="instructorCard" onMouseClicked="#showMoniteur" HBox.hgrow="ALWAYS">
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <StackPane fx:id="instructorIcon" styleClass="stat-icon-container, instructor-icon">
+                                <Circle radius="20" styleClass="stat-icon-circle" />
+                                <Label styleClass="stat-icon, logo-image" text="👨‍🏫" />
+                            </StackPane>
+                            <Label styleClass="stat-title" text="Moniteurs Actifs" HBox.hgrow="ALWAYS" />
+                        </HBox>
+                        <Label fx:id="moniteurTotal" styleClass="stat-value" text="8" />
+                        <styleClass>
+                            <String fx:value="stat-card" />
+                            <String fx:value="logo-image" />
+                        </styleClass>
+                    </VBox>
+
+                    <!-- Vehicles Card -->
+                    <VBox fx:id="vehicleCard" onMouseClicked="#showVehicules" HBox.hgrow="ALWAYS">
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <StackPane fx:id="vehicleIcon" styleClass="stat-icon-container, vehicle-icon">
+                                <Circle radius="20" styleClass="stat-icon-circle" />
+                                <Label styleClass="stat-icon, logo-image" text="🚗" />
+                            </StackPane>
+                            <Label styleClass="stat-title" text="Véhicules" HBox.hgrow="ALWAYS" />
+                        </HBox>
+                        <Label fx:id="vehiculeTotale" styleClass="stat-value" text="12" />
+                        <Label fx:id="vehiculeEnPanne" styleClass="stat-subtitle" text="10 opérationnels" />
+                        <styleClass>
+                            <String fx:value="stat-card" />
+                            <String fx:value="logo-image" />
+                        </styleClass>
+                    </VBox>
+
+                    <!-- Exams Card -->
+                    <VBox fx:id="examCard" onMouseClicked="#showExams" HBox.hgrow="ALWAYS">
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <StackPane fx:id="examIcon" styleClass="stat-icon-container, exam-icon">
+                                <Circle radius="20" styleClass="stat-icon-circle" />
+                                <Label styleClass="stat-icon, logo-image" text="📝" />
+                            </StackPane>
+                            <Label styleClass="stat-title" text="Examens ce Mois" HBox.hgrow="ALWAYS" />
+                        </HBox>
+                        <Label fx:id="examenTotal" styleClass="stat-value" text="15" />
+                        <Label fx:id="examenEnAttente" styleClass="stat-subtitle" text="4 programmés cette semaine" />
+                        <styleClass>
+                            <String fx:value="stat-card" />
+                            <String fx:value="logo-image" />
+                        </styleClass>
+                    </VBox>
+                </HBox>
+
+                <!-- Performance and Notifications Section -->
+                <HBox alignment="CENTER" spacing="15" VBox.vgrow="ALWAYS">
+                    <!-- Performance Section -->
+                    <VBox minWidth="900" styleClass="dashboard-card" HBox.hgrow="ALWAYS">
+                        <Label styleClass="dashboard-card-title" text="Performance Mensuelle" />
+                        <Label styleClass="dashboard-card-subtitle" text="Statistiques des examens et enregistrements" />
+
+                        <StackPane fx:id="graphe1" minHeight="200.0" prefHeight="500.0" prefWidth="900.0" styleClass="chart-container" VBox.vgrow="ALWAYS">
+                            <Label styleClass="chart-placeholder" text="Graphique de performance" />
+                        </StackPane>
+                    </VBox>
+                </HBox>
+
+                <!-- Documents and Exams Section -->
+                <HBox alignment="CENTER" spacing="15" VBox.vgrow="ALWAYS">
+                    <!-- Documents Section -->
+                    <VBox styleClass="dashboard-card" HBox.hgrow="ALWAYS">
+                        <Label styleClass="dashboard-card-title" text="Documents à échéance prochaine" />
+                        <Label styleClass="dashboard-card-subtitle" text="Documents nécessitant une attention" />
+
+                        <VBox spacing="10" styleClass="notifications-container" VBox.vgrow="ALWAYS">
+                            <!-- Document Item 1 -->
+                            <HBox styleClass="notification-item">
+                                <VBox HBox.hgrow="ALWAYS">
+                                    <Label styleClass="notification-title" text="Visite technique" />
+                                    <Label fx:id="VehiculeVisiteTechnique" styleClass="notification-description" text="Véhicule TU-1234-A" />
+                                </VBox>
+                                <Label fx:id="visiteTechnique" text="5 jours">
+                                    <styleClass>
+                                        <String fx:value="status-badge" />
+                                        <String fx:value="pending" />
+                                    </styleClass>
+                                </Label>
+                            </HBox>
+
+                            <!-- Document Item 2 -->
+                            <HBox styleClass="notification-item">
+                                <VBox HBox.hgrow="ALWAYS">
+                                    <Label styleClass="notification-title" text="Assurance" />
+                                    <Label fx:id="VehiculeAssurance" styleClass="notification-description" text="Véhicule TU-5678-B" />
+                                </VBox>
+                                <Label fx:id="Assurance" text="2 jours">
+                                    <styleClass>
+                                        <String fx:value="status-badge" />
+                                        <String fx:value="cancelled" />
+                                    </styleClass>
+                                </Label>
+                            </HBox>
+
+                            <!-- Document Item 3 -->
+                            <HBox styleClass="notification-item">
+                                <VBox HBox.hgrow="ALWAYS">
+                                    <Label styleClass="notification-title" text="Vignette fiscale" />
+                                    <Label fx:id="VehiculeVignette" styleClass="notification-description" text="Véhicule TU-9012-C" />
+                                </VBox>
+                                <Label fx:id="VignetteFiscale" text="15 jours">
+                                    <styleClass>
+                                        <String fx:value="status-badge" />
+                                        <String fx:value="completed" />
+                                    </styleClass>
+                                </Label>
+                            </HBox>
+                        </VBox>
+                    </VBox>
+
+                    <!-- Exams Section -->
+                    <VBox styleClass="dashboard-card" HBox.hgrow="ALWAYS">
+                        <Label styleClass="dashboard-card-title" text="Examens et Séances à venir" />
+                        <Label styleClass="dashboard-card-subtitle" text="Prochains examens et séances programmés" />
+
+                        <VBox spacing="10" styleClass="notifications-container" VBox.vgrow="ALWAYS">
+                            <!-- Exam Item 1 -->
+                            <HBox styleClass="notification-item">
+                                <VBox HBox.hgrow="ALWAYS">
+                                    <Label styleClass="notification-title" text="Examens à venir" />
+                                    <Label fx:id="nbrExamen" styleClass="notification-description" text="10 candidats - 08/04/2025" />
+                                </VBox>
+                                <Button onAction="#showAllExamsCetteSemaine" styleClass="action-button" text="Détails" />
+                            </HBox>
+
+                            <!-- Exam Item 2 -->
+                            <HBox styleClass="notification-item">
+                                <VBox HBox.hgrow="ALWAYS">
+                                    <Label styleClass="notification-title" text="Séances Code à venir" />
+                                    <Label fx:id="nbrSeanceCode" styleClass="notification-description" text="4 candidats - 12/04/2025" />
+                                </VBox>
+                                <Button onAction="#showAllSeanceCode" styleClass="action-button" text="Détails" />
+                            </HBox>
+
+                            <!-- Exam Item 3 -->
+                            <HBox styleClass="notification-item">
+                                <VBox HBox.hgrow="ALWAYS">
+                                    <Label styleClass="notification-title" text="Séances Conduite à venir" />
+                                    <Label fx:id="nbrSeanceConduite" styleClass="notification-description" text="3 candidats - 15/04/2025" />
+                                </VBox>
+                                <Button onAction="#ShowAllSeanceConduit" styleClass="action-button" text="Détails" />
+                            </HBox>
+                        </VBox>
+                    </VBox>
+                </HBox>
+
+                <!-- Graphs Section -->
+                <HBox alignment="CENTER" spacing="15" VBox.vgrow="ALWAYS">
+                    <VBox minWidth="500" styleClass="dashboard-card" HBox.hgrow="ALWAYS">
+                        <Label styleClass="dashboard-card-title" text="Performance Mensuelle" />
+                        <Label styleClass="dashboard-card-subtitle" text="Statistiques des examens et enregistrements" />
+                        <StackPane fx:id="graphe2" prefHeight="300.0" prefWidth="500.0" styleClass="chart-container" VBox.vgrow="ALWAYS" />
+                    </VBox>
+                    <Region minWidth="0.0" prefHeight="444.0" prefWidth="0.0" HBox.hgrow="NEVER" />
+                    <VBox minWidth="500" prefHeight="444.0" prefWidth="556.0" styleClass="dashboard-card" HBox.hgrow="ALWAYS">
+                        <Label styleClass="dashboard-card-title" text="Performance Mensuelle" />
+                        <Label styleClass="dashboard-card-subtitle" text="Statistiques des examens et enregistrements" />
+                        <StackPane fx:id="graphe3" prefHeight="300.0" prefWidth="500.0" styleClass="chart-container" VBox.vgrow="ALWAYS" />
+                    </VBox>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>
